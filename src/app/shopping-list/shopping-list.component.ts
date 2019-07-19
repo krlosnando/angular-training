@@ -16,6 +16,8 @@ export class ShoppingListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    let x = 10;
+    x = 12;
   }
 
 }
