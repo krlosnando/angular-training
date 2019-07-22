@@ -21,10 +21,7 @@ export class DataListContainerComponent implements OnInit {
   apiDataListObservableTitle: string = 'Api List w/Observable';
   apiData: string[] = [];
 
-  loadApiDataAsObservableFunction: () => Observable<string[]>;
-
   ngOnInit() {
-    this.loadApiDataAsObservableFunction = this.loadApiDataAsObservable.bind(this);
   }
 
   loadRandomData() {
@@ -59,7 +56,7 @@ export class DataListContainerComponent implements OnInit {
     });
   }
 
-  loadApiDataAsObservable(): Observable<string[]> {
+  loadApiDataAsObservable = (): Observable<string[]> => {
     return this.http.get('https://jsonplaceholder.typicode.com/users')
       .pipe(map((data: ApiResult[]) => {
         const result: string[] = [];
