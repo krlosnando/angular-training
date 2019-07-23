@@ -1,0 +1,14 @@
+.add-server, 
+.server-statuses {
+    width: 300px;
+    margin: 10px 0px;
+}
+
+button{
+    margin: 10px 0px;
+}
+
+.serverCreationStatus {
+    font-size: 90%;
+    color: gray;
+}

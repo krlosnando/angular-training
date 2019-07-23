@@ -1,0 +1,20 @@
+.header{
+    text-align: center;
+}
+
+.container {
+    width: 100%;
+  }  
+
+  .odd {
+      color: red;
+  }
+
+  .even {
+    color: green;
+}
+
+a{
+    color: initial;
+    text-decoration: underline;
+}

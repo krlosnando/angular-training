@@ -1,0 +1,12 @@
+.answer {
+    margin: 1em;
+}
+
+input,
+button {
+    margin: 1em 0;
+}
+
+input {
+    width: 250px;
+}

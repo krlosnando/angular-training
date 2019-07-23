@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="header">
+    <h2>Directives</h2>
+  </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <button
+          class="btn btn-primary"
+          (click)="onlyOdd = !onlyOdd">Only show odd numbers</button>
+        <br><br>
+        <ul class="list-group">
+          <div *ngIf="onlyOdd">
+            <li
+            class="list-group-item"
+            [ngClass]="{odd: number % 2 !== 0}"
+            [ngStyle]="{backgroundColor: number % 2 !== 0 ? 'yellow' : 'transparent'}"
+            *ngFor="let number of oddNumbers">
+            {{ number }}
+          </li>
+        </div>
+        <!-- Commented to check our own "unless directive" -->
+        <!-- <div *ngIf="!onlyOdd">
+          <li
+          class="list-group-item"
+          [ngClass]="{even: number % 2 == 0}"
+          *ngFor="let number of evenNumbers">
+          {{ number }}
+        </li>
+      </div> -->
+      <!-- star indicates that this is structural directive. there is no * in anguilar syntax - angular will transform them into sth else -->
+      <!-- Example what will happen with div above: (You do not have to use it, but you should be aware of this) -->
+      <!-- <ng-template [ngIf]="!onlyOdd">
+          <li
+          class="list-group-item"
+          [ngClass]="{even: number % 2 == 0}"
+          *ngFor="let number of evenNumbers">
+          {{ number }}
+        </li>
+      </ng-template> -->
+       <div *appUnless="onlyOdd">
+          <li
+          class="list-group-item"
+          [ngClass]="{even: number % 2 == 0}"
+          *ngFor="let number of evenNumbers">
+          {{ number }}
+        </li>
+      </div>
+      </ul>
+        <p appBasicHighlight>Style me with basic directive!</p>
+        <p>Done with <a href="https://angular.io/api/core/Renderer2">Renderer2</a>: </p>
+        <p [appBetterHighlight]="'red'" defaultColor="yellow">Style me with basic directive! (mouse over)</p>
+        <!-- [appBetterHighlight]="'red'" is an alias which you may use, but you don't have too. You may use [highlightColor]="'red'" at is was before used here. Chck what is set in @Input()!-->
+        <!-- You can aso replace defaultColor="yellow" with [defaultColor]="'yellow'", but remember about the single quotation mark -->
+        <div [ngSwitch]="value">
+          <p>ngSwitch: </p>
+          <div *ngSwitchCase="5">Value is 5</div>
+          <div *ngSwitchCase="10">Value is 10</div>
+          <div *ngSwitchCase="100">Value is 100</div>
+          <div *ngSwitchDefault>Value is default</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
